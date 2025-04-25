@@ -223,7 +223,8 @@ body {
     text-align: center;
 }
 .register-header h1 {
-    font-size: 25px;
+    font-size: 35px;
+    font-weight: 800;
     margin-bottom: 10px;
 }
 .register-header p {
@@ -357,9 +358,12 @@ body {
 }
 @media (max-width: 576px) {
     .register-header {
-        padding: 25px;
+        padding: 25px 20px 0 20px;
     }
     .register-body {
         padding: 25px;
+    }
+    .register-header h1{
+        font-size: 30px;
     }
 }

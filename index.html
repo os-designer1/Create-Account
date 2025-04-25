@@ -58,19 +58,21 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">البريد الإلكتروني</label>
+                        <label for="email">البريد الإلكتروني <span style="color: #888; font-size: 12px;">(اختياري)</span></label>
                         <div class="input-field">
                             <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني">
+                            <input type="email" id="email" placeholder="">
                         </div>
+                        <p style="padding: 10px;">(تحتاجه عند فقدان كلمت السر )</p>
                         <div class="error-message" id="emailError"></div>
+
                     </div>
                     
                     <div class="form-group">
                         <label for="phone">رقم الهاتف</label>
                         <div class="input-field">
                             <i class="fas fa-phone input-icon"></i>
-                            <input type="tel" id="phone" placeholder="أدخل رقم هاتفك" required>
+                            <input type="tel" id="phone" placeholder="" required>
                         </div>
                         <div class="error-message" id="phoneError"></div>
                     </div>
@@ -116,10 +118,10 @@
                     </style>
                     
                     <div class="form-group">
-                        <label for="birthdate">تاريخ الميلاد</label>
+                        <label for="birthdate">تاريخ الميلاد <span style="color: #888; font-size: 12px;">(اختياري)</span></label>
                         <div class="input-field">
                             <i class="fas fa-calendar-alt input-icon"></i>
-                            <input type="date" id="birthdate" required>
+                            <input type="date" id="birthdate">
                         </div>
                         <div class="error-message" id="birthdateError"></div>
                     </div>
