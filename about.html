@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل حساب جديد</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <div class="nav" id="nav">
+            <a href="https://os-designer1.github.io/support/">الدعم</a>
+            <a href="https://os-designer1.github.io/OS-Designer-pepar-Designer/">خدمات الورقيه </a>
+            <a href="https://os-designer1.github.io/OS-Designer-logo-Teshrt-Designer/">لوجو علي تيشرت</a>
+            <a href="https://os-designer1.github.io/OS-Designer-panar-Designer/">بنر و يفط </a>
+            <a href="https://os-designer1.github.io/OS-Designer-Social-media-Designer/">أعلانات </a>
+           <a href="https://os-designer1.github.io/OS-Designer-logo-Designer/">logo</a>
+        </div>
+        <a href="https://os-designer1.github.io/OS-Designer/"> <img src="logo.png" alt="لوجو الموقع" class="logo"> </a><!-- هنا ضع رابط الصورة -->
+
+      
+        <div class="menu-icon" onclick="toggleNav()">☰</div>
+        </div>
+  <div class="header2" id="mainHeader">
+    <a class="Social" href="">  حسابات </a>
+    <div class="header2-nav">
+        <a class="active" href="https://os-designer1.github.io/OS-Designer-logo-Designer/">انشاء حساب جديد</a>
+        <a class="support" href="https://os-designer1.github.io/viwo-logo-Designer/">تسجيل الدخول</a>
+    </div>
+  </div>
+
+    <div class="container">
+        <div class="register-card">
+            <div class="register-header">
+                <h1>إنشاء حساب جديد</h1>
+                <p>املأ النموذج أدناه لإنشاء حسابك</p>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                تم إنشاء حسابك بنجاح! جاري تحويلك...
+            </div>
+            
+            <div class="register-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="fullName">الاسم الكامل</label>
+                        <div class="input-field">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <div class="input-field">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني">
+                        </div>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <div class="input-field">
+                            <i class="fas fa-phone input-icon"></i>
+                            <input type="tel" id="phone" placeholder="أدخل رقم هاتفك" required>
+                        </div>
+                        <div class="error-message" id="phoneError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">المحافظة</label>
+                        <div class="input-field custom-select-field"></div>
+                            <select id="address" class="custom-select">
+                                <option value="">اختر المحافظة</option>
+                                <option value="القاهرة">القاهرة</option>
+                                <option value="الجيزة">الجيزة</option>
+                                <option value="الإسكندرية">الإسكندرية</option>
+                                <option value="الدقهلية">الدقهلية</option>
+                                <option value="البحر الأحمر">البحر الأحمر</option>
+                                <option value="البحيرة">البحيرة</option>
+                                <option value="الفيوم">الفيوم</option>
+                                <option value="الغربية">الغربية</option>
+                                <option value="الإسماعيلية">الإسماعيلية</option>
+                                <option value="المنوفية">المنوفية</option>
+                                <option value="المنيا">المنيا</option>
+                                <option value="القليوبية">القليوبية</option>
+                                <option value="الوادي الجديد">الوادي الجديد</option>
+                                <option value="السويس">السويس</option>
+                                <option value="اسوان">اسوان</option>
+                                <option value="اسيوط">اسيوط</option>
+                                <option value="بني سويف">بني سويف</option>
+                                <option value="بورسعيد">بورسعيد</option>
+                                <option value="دمياط">دمياط</option>
+                                <option value="الشرقية">الشرقية</option>
+                                <option value="جنوب سيناء">جنوب سيناء</option>
+                                <option value="كفر الشيخ">كفر الشيخ</option>
+                                <option value="مطروح">مطروح</option>
+                                <option value="الأقصر">الأقصر</option>
+                                <option value="قنا">قنا</option>
+                                <option value="شمال سيناء">شمال سيناء</option>
+                                <option value="سوهاج">سوهاج</option>
+                            </select>
+                        </div>
+                        <div class="error-message" id="addressError"></div>
+                    </div>
+                    <style>
+                   
+                    </style>
+                    
+                    <div class="form-group">
+                        <label for="birthdate">تاريخ الميلاد</label>
+                        <div class="input-field">
+                            <i class="fas fa-calendar-alt input-icon"></i>
+                            <input type="date" id="birthdate" required>
+                        </div>
+                        <div class="error-message" id="birthdateError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">كلمة المرور</label>
+                        <div class="input-field">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="password" placeholder="أنشئ كلمة مرور قوية" required>
+                        </div>
+                        <div class="error-message" id="passwordError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">تأكيد كلمة المرور</label>
+                        <div class="input-field">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="confirmPassword" placeholder="أعد إدخال كلمة المرور" required>
+                        </div>
+                        <div class="error-message" id="confirmPasswordError"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> إنشاء حساب
+                    </button>
+                </form>
+
+
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تهيئة Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAIL9B-CijJ_1jQelALW0hdXV2bzqBhjnw",
+            authDomain: "storehub-manager.firebaseapp.com",
+            projectId: "storehub-manager",
+            storageBucket: "storehub-manager.appspot.com",
+            messagingSenderId: "584686051923",
+            appId: "1:584686051923:web:3aad37de33ccc43dfa1ca6"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        
+        // عناصر DOM
+        const registerForm = document.getElementById('registerForm');
+        const successMessage = document.getElementById('successMessage');
+        const loginLink = document.getElementById('loginLink');
+        
+        // تسجيل مستخدم جديد
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // إخفاء جميع رسائل الخطأ
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // جمع بيانات النموذج
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const birthdate = document.getElementById('birthdate').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // التحقق من الصحة (متوافق مع قواعد Firestore)
+            let isValid = true;
+            
+            if (fullName.length < 2) {
+                document.getElementById('nameError').textContent = 'الاسم يجب أن يكون على الأقل حرفين';
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'البريد الإلكتروني غير صالح';
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!/^[0-9+]{8,15}$/.test(phone)) {
+                document.getElementById('phoneError').textContent = 'رقم الهاتف يجب أن يحتوي على 8-15 رقم';
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (address && typeof address !== 'string') {
+                document.getElementById('addressError').textContent = 'العنوان غير صالح';
+                document.getElementById('addressError').style.display = 'block';
+                isValid = false;
+            }
+            
+           
+            
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'كلمة المرور يجب أن تكون على الأقل 6 أحرف';
+                document.getElementById('passwordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'كلمتا المرور غير متطابقتين';
+                document.getElementById('confirmPasswordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            try {
+                // إنشاء المستخدم في Firebase Authentication
+                const emailToUse = email || `${phone}@phone.com`; // استخدام بريد افتراضي إذا لم يتم إدخال بريد
+                const userCredential = await auth.createUserWithEmailAndPassword(emailToUse, password);
+                const user = userCredential.user;
+                
+                // تحضير بيانات العميل (متوافقة مع قواعد Firestore)
+                const customerData = {
+                    name: fullName,
+                    phone: phone,
+                    email: email || null,
+                    address: address || null,
+                    birthdate: birthdate || null,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+                };
+                
+                // حفظ بيانات العميل في Firestore
+                await db.collection('customers').doc(user.uid).set(customerData);
+                
+                // إظهار رسالة النجاح
+                successMessage.style.display = 'block';
+                registerForm.reset();
+                
+
+                
+            } catch (error) {
+                console.error('Error registering user:', error);
+                
+                let errorMessage = 'حدث خطأ أثناء إنشاء الحساب. الرجاء المحاولة لاحقاً';
+                
+                if (error.code === 'auth/email-already-in-use') {
+                    errorMessage = 'البريد الإلكتروني مستخدم بالفعل';
+                    document.getElementById('emailError').textContent = errorMessage;
+                    document.getElementById('emailError').style.display = 'block';
+                } else if (error.code === 'auth/weak-password') {
+                    errorMessage = 'كلمة المرور ضعيفة جداً';
+                    document.getElementById('passwordError').textContent = errorMessage;
+                    document.getElementById('passwordError').style.display = 'block';
+                } else {
+                    alert(errorMessage);
+                }
+            }
+        });
+        
+        // الانتقال إلى صفحة تسجيل الدخول
+        loginLink.addEventListener('click', () => {
+            window.location.href = 'login.html';
+        });
+    </script>
+   <script src="scrept.js"></script>
+</body>
+</html>
